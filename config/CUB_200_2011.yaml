@@ -1,5 +1,4 @@
-ROOT: '/data1/xjheng/dataset/cub-200-2011/CUB_200_2011'
-#ROOT: '/data2/xjheng/dataset/cub-200-2011/CUB_200_2011'
+ROOT: '/your/data/root/CUB_200_2011'
 DATA: 'CUB'
 ARCH: 'vgg16'
 RESUME: ''
