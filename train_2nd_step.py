@@ -140,7 +140,6 @@ def main():
     # training part
     for epoch in range(start_epoch, config.R_EPOCHS):
         train(config, train_loader, model, criterion, optimizer, epoch, scheduler)
-        best_threshold = test_multi_threshold(config, test_loader, model, criterion, epoch)
 
     best_threshold = test_multi_threshold(config, test_loader, model, criterion, epoch)
     torch.save(
