@@ -51,49 +51,19 @@ def bboxes_reader(path):
 
 class ILSVRC2012(torch.utils.data.Dataset):
     """
-    CUB200 dataset.
-
-    Variables
-    ----------
-        _root, str: Root directory of the dataset.
-        _train, bool: Load train/test data.
-        _transform, callable: A function/transform that takes in a PIL.Image
-            and transforms it.
-        _train_data, list of np.array.
-        _train_labels, list of int.
-        _train_parts, list np.array.
-        _train_boxes, list np.array.
-        _test_data, list of np.array.
-        _test_labels, list of int.
-        _test_parts, list np.array.
-        _test_boxes, list np.array.
+    ILSVRC2012 dataset.
     """
 
     def __init__(self, root, train=True, transform=None):
-        """
-        Load the dataset.
-
-        Args
-        ----------
-        root: str
-            Root directory of the dataset.
-        train: bool
-            train/test data split.
-        transform: callable
-            A function/transform that takes in a PIL.Image and transforms it.
-        resize: int
-            Length of the shortest of edge of the resized image. Used for transforming landmarks and bounding boxes.
-
-        """
         self._root = root
         self._train = train
         self._transform = transform
         self.loader = pil_loader
 
         if self._train:
-            self.imgList = default_list_reader(self._root + '/train.txt')[:1000]
+            self.imgList = default_list_reader(self._root + '/train.txt')
         else:
-            self.imgList = default_list_reader(self._root + '/val.txt')[:1000]
+            self.imgList = default_list_reader(self._root + '/val.txt')
 
         self.bboxes = bboxes_reader(self._root)
 
