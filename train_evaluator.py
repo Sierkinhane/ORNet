@@ -13,6 +13,7 @@ from torchvision import transforms
 
 from dataset import *
 from models.evaluator import Evaluator
+from utils.func_utils import *
 from utils.im_utils import *
 from utils.log_utils import *
 
